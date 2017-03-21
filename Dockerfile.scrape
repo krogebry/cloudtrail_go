@@ -1,0 +1,5 @@
+FROM golang
+RUN mkdir -p /opt/bin
+COPY ./bin/scrape /opt/bin/scrape
+
+ENTRYPOINT [ "/opt/bin/scrape" ]

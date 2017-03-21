@@ -1,0 +1,18 @@
+---
+version: '2'
+services:
+	mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - /mnt/data/mongodb/cloudtrail:/data/db/
+  queue:
+    image: queue
+    build:
+      context: .
+      dockerfile: Dockerfile.queue
+    ports:
+      - "8000:8000"
+    environment:
+      - NUM_WORKERS=10

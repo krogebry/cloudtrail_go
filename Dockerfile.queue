@@ -1,0 +1,10 @@
+FROM golang
+RUN mkdir -p /opt/bin
+COPY bin/queue /opt/bin/queue
+
+#ENV NUM_WORKERS 10
+
+EXPOSE 8000
+
+# RUN [ "/opt/bin/queue", "-n", "${NUM_WORKERS}" ]
+ENTRYPOINT [ "/opt/bin/queue" ]
